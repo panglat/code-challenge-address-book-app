@@ -1,9 +1,10 @@
 import React from 'react';
 import './App.scss';
+import UserList from './UserList/UserList';
 
 const App = () => {
   return (
-    <div>App</div>
+    <div><UserList /></div>
   );
 };
 
