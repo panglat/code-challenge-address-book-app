@@ -1,10 +1,16 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+
 import './App.scss';
 import UserList from './UserList/UserList';
 
-const App = () => {
+const App = ({ store }) => {
   return (
-    <div><UserList /></div>
+    <Provider store={store}>
+      <div>
+        <UserList />
+      </div>
+    </Provider>
   );
 };
 
