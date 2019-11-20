@@ -3,6 +3,7 @@ import './UserList.scss';
 import { requestUsers } from '../../store/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUsers } from '../../store/selectors';
+import UserListItem from './UserListItem/UserListItem';
 
 const UserList = () => {
   const dispatch = useDispatch();
@@ -12,12 +13,7 @@ const UserList = () => {
     dispatch(requestUsers());
   }, [dispatch]);
 
-  return (
-    <>
-      <div>UserList</div>
-      <pre>{JSON.stringify(users, null, ' ')}</pre>
-    </>
-  );
+  return <div>{users && users.map(user => UserListItem(user))}</div>;
 };
 
 export default UserList;

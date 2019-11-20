@@ -1,0 +1,19 @@
+.user-list-item {
+  display: flex;
+  align-items: center;
+  
+  &__thumbnail {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    margin: 10px
+  }
+
+  &__user-information{
+    flex: 1 0 1;
+    margin: 10px;
+  }
+  &__full-name, &__user-name, &__email {
+    margin: 0;
+  }
+}
