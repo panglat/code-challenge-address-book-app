@@ -17,7 +17,7 @@ const App = ({ store }) => {
       <Router>
         <div>
         <Switch>
-        <Route path="/user">
+        <Route path="/user/:id">
             <UserDetails />
           </Route>
           <Route path="/">
