@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserDetails from './UserDetails';
+import UserDetailsModal from './UserDetailsModal';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<UserDetails />, div);
+  ReactDOM.render(<UserDetailsModal />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

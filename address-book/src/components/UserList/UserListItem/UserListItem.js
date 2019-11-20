@@ -5,7 +5,7 @@ import './UserListItem.scss';
 const UserListItem = ({ user, ...rest }) => {
   const {email, login, name, picture} = user;
   return (
-    <div className="user-list-item" key={`${login.salt}`} {...rest}>
+    <div className="user-list-item" {...rest}>
         <img
           alt={`${name.first} ${name.last}`}
           src={picture.thumbnail}

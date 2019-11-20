@@ -4,7 +4,7 @@ import { requestUsers } from '../../store/actions';
 import { useSelector, useDispatch } from 'react-redux';
 import { getUsers } from '../../store/selectors';
 import UserListItem from './UserListItem/UserListItem';
-import SimpleModal from '../SimpleModal/SimpleModal';
+import UserDetailsModal from '../UserDetailsModal/UserDetailsModal';
 
 const UserList = () => {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ const UserList = () => {
     dispatch(requestUsers());
   }, [dispatch]);
 
-  const onItemClick = (user) => {
+  const onItemClick = user => {
     setSelectedUser(user);
   };
 
@@ -23,9 +23,20 @@ const UserList = () => {
     <div>
       {users &&
         users.map(user => {
-          return <UserListItem user={user} onClick={() => onItemClick(user)} />;
+          return (
+            <UserListItem
+              key={`${user.login.salt}`}
+              user={user}
+              onClick={() => onItemClick(user)}
+            />
+          );
         })}
-      {selectedUser && (<SimpleModal onCloseModal={() => setSelectedUser(null)}>{selectedUser.email}</SimpleModal>)} 
+      {selectedUser && (
+        <UserDetailsModal
+          onCloseModal={() => setSelectedUser(null)}
+          user={selectedUser}
+        />
+      )}
     </div>
   );
 };
