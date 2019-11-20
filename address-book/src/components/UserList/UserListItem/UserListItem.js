@@ -2,10 +2,10 @@ import React from 'react';
 
 import './UserListItem.scss';
 
-const UserListItem = user => {
+const UserListItem = ({ user, ...rest }) => {
   const {email, login, name, picture} = user;
   return (
-    <div className="user-list-item" key={`${login.salt}`}>
+    <div className="user-list-item" key={`${login.salt}`} {...rest}>
         <img
           alt={`${name.first} ${name.last}`}
           src={picture.thumbnail}
