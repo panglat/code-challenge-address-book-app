@@ -2,35 +2,49 @@ import React, { useEffect, useState } from 'react';
 import './UserList.scss';
 import { requestUsers } from '../../store/actions';
 import { useSelector, useDispatch } from 'react-redux';
-import { getUsers } from '../../store/selectors';
+import { getUsers, loadingUsers } from '../../store/selectors';
 import UserListItem from './UserListItem/UserListItem';
 import UserDetailsModal from '../UserDetailsModal/UserDetailsModal';
 
 const UserList = () => {
   const dispatch = useDispatch();
   const users = useSelector(state => getUsers(state));
+  const isFetchingUsers = useSelector(state => loadingUsers(state));
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    dispatch(requestUsers());
+    dispatch(requestUsers({results: 100}));
   }, [dispatch]);
 
   const onItemClick = user => {
     setSelectedUser(user);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isFetchingUsers) return;
+      dispatch(requestUsers());
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
+
+
   return (
-    <div>
+    <div className="user-list">
       {users &&
-        users.map(user => {
+        users.map((user, index) => {
           return (
             <UserListItem
               key={`${user.login.salt}`}
-              user={user}
+              index={index}
               onClick={() => onItemClick(user)}
+              user={user}
             />
           );
         })}
+      {isFetchingUsers && (<div>Fetching users</div>)}
       {selectedUser && (
         <UserDetailsModal
           onCloseModal={() => setSelectedUser(null)}

@@ -3,9 +3,9 @@ import { USERS_FETCH_REQUESTED } from './actionTypes';
 import { requestUsersSuccess, requestUsersError } from './actions';
 import { getUserList } from '../apis/RandomUserAPI';
 
-function* fetchUsers() {
+function* fetchUsers(action) {
   try {
-    const result = yield call(() => getUserList());
+    const result = yield call(() => getUserList(action.payload.params));
     yield put(requestUsersSuccess(result));
   } catch (e) {
     yield put(requestUsersError(e.message));

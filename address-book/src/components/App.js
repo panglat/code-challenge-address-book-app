@@ -4,18 +4,21 @@ import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.scss';
 import UserList from './UserList/UserList';
+import Header from './Header/Header';
+import Main from './Main/Main';
 
 const App = ({ store }) => {
   return (
     <Provider store={store}>
       <Router>
-        <div>
+        <Header />
+        <Main>
           <Switch>
             <Route path="/">
               <UserList />
             </Route>
           </Switch>
-        </div>
+        </Main>
       </Router>
     </Provider>
   );

@@ -4,17 +4,17 @@ import {
   USERS_FETCH_FAILED,
 } from './actionTypes';
 
-export const requestUsers = () => ({
+export const requestUsers = params => ({
   type: USERS_FETCH_REQUESTED,
-  payload: { loading: true, error: null },
+  payload: { params },
 });
 
 export const requestUsersSuccess = response => ({
   type: USERS_FETCH_SUCCEEDED,
-  payload: { response, loading: false, error: null },
+  payload: { response },
 });
 
 export const requestUsersError = error => ({
   type: USERS_FETCH_FAILED,
-  payload: { response: null, loading: false, error },
+  payload: { error },
 });

@@ -8,7 +8,7 @@ const initialState = {
   users: {
     loading: false,
     error: null,
-    response: null,
+    response: [],
   },
 };
 
@@ -19,8 +19,7 @@ export default function reducer(state = initialState, action) {
         ...state,
         users: {
           ...state.users,
-          loading: action.payload.loading,
-          response: null,
+          loading: true,
         },
       };
 
@@ -29,9 +28,9 @@ export default function reducer(state = initialState, action) {
         ...state,
         users: {
           ...state.users,
-          loading: action.payload.loading,
+          loading: false,
           error: null,
-          response: action.payload.response,
+          response: [...state.users.response, ...action.payload.response],
         },
       };
 
@@ -40,8 +39,9 @@ export default function reducer(state = initialState, action) {
         ...state,
         users: {
           ...state.users,
-          loading: action.payload.loading,
+          loading: false,
           error: action.payload.error,
+          response: [],
         },
       };
 
