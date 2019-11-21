@@ -2,10 +2,12 @@ import {
   USERS_FETCH_REQUESTED,
   USERS_FETCH_SUCCEEDED,
   USERS_FETCH_FAILED,
+  USERS_RECORD_TO_DISPLAY,
 } from './actionTypes';
 
 const initialState = {
   users: {
+    recordsToDisplay: 0,
     loading: false,
     error: null,
     response: [],
@@ -42,6 +44,15 @@ export default function reducer(state = initialState, action) {
           loading: false,
           error: action.payload.error,
           response: [],
+        },
+      };
+
+    case USERS_RECORD_TO_DISPLAY:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          recordsToDisplay: action.payload.records,
         },
       };
 
