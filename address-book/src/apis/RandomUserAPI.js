@@ -4,7 +4,7 @@ const RandomUserAPI = axios.create({
   baseURL: 'https://randomuser.me/api/',
 });
 
-export const DEFAULT_GET_USER_LIST_RESULTS = 50;
+export const DEFAULT_GET_USER_LIST_RESULTS = 10;
 
 export const getUserList = async (
   params = { results: DEFAULT_GET_USER_LIST_RESULTS }

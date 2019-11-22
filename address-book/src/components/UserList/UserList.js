@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getUsers, loadingUsers, userRecordsToDisplay } from '../../store/selectors';
 import UserListItem from './UserListItem/UserListItem';
 import UserDetailsModal from '../UserDetailsModal/UserDetailsModal';
+import { USERS_BATCH_SIZE, USERS_MAX_CATALOGUE_LENGTH } from '../../utils/constants';
 
 const UserList = () => {
   const dispatch = useDispatch();
@@ -14,16 +15,14 @@ const UserList = () => {
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    dispatch(requestUsers());
-    dispatch(usersRecordsToDisplay(recordsToDisplay + 50))
+    dispatch(usersRecordsToDisplay(USERS_BATCH_SIZE))
   }, [dispatch]);
 
   useEffect(() => {
-    debugger;
-    if(!isFetchingUsers && users.length === recordsToDisplay && users.length <= 950) {
-      dispatch(requestUsers());
+    if(!isFetchingUsers && users.length === recordsToDisplay && users.length < USERS_MAX_CATALOGUE_LENGTH) {
+      dispatch(requestUsers({results: USERS_BATCH_SIZE}));
     }
-  }, [dispatch, users, recordsToDisplay, isFetchingUsers]);
+  }, [dispatch, isFetchingUsers, users, recordsToDisplay]);
 
 
   const onItemClick = user => {
@@ -33,7 +32,6 @@ const UserList = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isFetchingUsers) return;
-      debugger;
       if (users.length > recordsToDisplay) {
         dispatch(usersRecordsToDisplay(users.length))
       }
@@ -59,7 +57,7 @@ const UserList = () => {
           );
         })}
       {isFetchingUsers && users.length === recordsToDisplay && (<div>Fetching users</div>)}
-      {users.length >= 1000 && (<div>End of file</div>)}
+      {users.length >= USERS_MAX_CATALOGUE_LENGTH && (<div>End of file</div>)}
       {selectedUser && (
         <UserDetailsModal
           onCloseModal={() => setSelectedUser(null)}
