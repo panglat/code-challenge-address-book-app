@@ -3,6 +3,7 @@ import {
   USERS_FETCH_SUCCEEDED,
   USERS_FETCH_FAILED,
   USERS_RECORD_TO_DISPLAY,
+  RESET_USERS_FETCH_FAILED,
 } from './actionTypes';
 
 const initialState = {
@@ -43,7 +44,6 @@ export default function reducer(state = initialState, action) {
           ...state.users,
           loading: false,
           error: action.payload.error,
-          response: [],
         },
       };
 
@@ -53,6 +53,15 @@ export default function reducer(state = initialState, action) {
         users: {
           ...state.users,
           recordsToDisplay: action.payload.records,
+        },
+      };
+
+    case RESET_USERS_FETCH_FAILED:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          error: null,
         },
       };
 

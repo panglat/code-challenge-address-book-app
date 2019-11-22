@@ -3,6 +3,7 @@ import {
   USERS_FETCH_SUCCEEDED,
   USERS_FETCH_FAILED,
   USERS_RECORD_TO_DISPLAY,
+  RESET_USERS_FETCH_FAILED,
 } from './actionTypes';
 
 export const requestUsers = params => ({
@@ -23,4 +24,9 @@ export const requestUsersError = error => ({
 export const usersRecordsToDisplay = records => ({
   type: USERS_RECORD_TO_DISPLAY,
   payload: { records },
+});
+
+export const resetUsersError = () => ({
+  type: RESET_USERS_FETCH_FAILED,
+  payload: {  },
 });
