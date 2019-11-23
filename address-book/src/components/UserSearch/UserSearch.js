@@ -24,6 +24,11 @@ const UserSearch = () => {
     setSearch(event.target.value);
   };
 
+  const resetSearch = () => {
+    setSearch('');
+    dispatch(setUserSearch(''));
+  }
+
   return (
   <form onSubmit={(event) => handleSubmit(event)}>
     <label>
@@ -35,6 +40,7 @@ const UserSearch = () => {
       />
     </label>
     <input type="submit" value="Search" />
+    <button onClick={() => resetSearch()}>Reset</button>
   </form>
   )
 };
