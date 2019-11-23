@@ -4,6 +4,7 @@ import {
   USERS_FETCH_FAILED,
   USERS_RECORD_TO_DISPLAY,
   RESET_USERS_FETCH_FAILED,
+  SET_USERS_SEARCH,
 } from './actionTypes';
 
 export const requestUsers = params => ({
@@ -29,4 +30,9 @@ export const usersRecordsToDisplay = records => ({
 export const resetUsersError = () => ({
   type: RESET_USERS_FETCH_FAILED,
   payload: {  },
+});
+
+export const setUserSearch = userSearch => ({
+  type: SET_USERS_SEARCH,
+  payload: { userSearch },
 });

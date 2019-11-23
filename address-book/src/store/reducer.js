@@ -4,6 +4,7 @@ import {
   USERS_FETCH_FAILED,
   USERS_RECORD_TO_DISPLAY,
   RESET_USERS_FETCH_FAILED,
+  SET_USERS_SEARCH,
 } from './actionTypes';
 
 const initialState = {
@@ -12,6 +13,7 @@ const initialState = {
     loading: false,
     error: null,
     userList: [],
+    userSearch: '',
   },
 };
 
@@ -62,6 +64,15 @@ export default function reducer(state = initialState, action) {
         users: {
           ...state.users,
           error: null,
+        },
+      };
+
+    case SET_USERS_SEARCH:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          userSearch: action.payload.userSearch,
         },
       };
 

@@ -1,10 +1,11 @@
 import React from 'react';
 
 import './Header.scss';
+import UserSearch from '../UserSearch/UserSearch';
 
 const Header = () => (
     <header className="header">
-      Test
+      <UserSearch onUserSearch={(search) => alert(search)} />
     </header>
   );
 
