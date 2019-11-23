@@ -6,19 +6,25 @@ import './App.scss';
 import UserList from './UserList/UserList';
 import Header from './Header/Header';
 import Main from './Main/Main';
+import Settings from './Settings/Settings';
 
 const App = ({ store }) => {
   return (
     <Provider store={store}>
       <Router>
-        <Header />
-        <Main>
-          <Switch>
-            <Route path="/">
+        <Switch>
+          <Route path="/settings">
+            <Main>
+              <Settings />
+            </Main>
+          </Route>
+          <Route path="/">
+            <Header />
+            <Main>
               <UserList />
-            </Route>
-          </Switch>
-        </Main>
+            </Main>
+          </Route>
+        </Switch>
       </Router>
     </Provider>
   );
