@@ -11,7 +11,7 @@ const initialState = {
     recordsToDisplay: 0,
     loading: false,
     error: null,
-    response: [],
+    userList: [],
   },
 };
 
@@ -33,7 +33,7 @@ export default function reducer(state = initialState, action) {
           ...state.users,
           loading: false,
           error: null,
-          response: [...state.users.response, ...action.payload.response],
+          userList: [...state.users.userList, ...action.payload.response],
         },
       };
 

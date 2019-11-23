@@ -20,10 +20,14 @@ const UserList = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if(!isFetchingUsers && !fetchFailed && users.length === recordsToDisplay && users.length < USERS_MAX_CATALOGUE_LENGTH) {
-      dispatch(requestUsers({results: USERS_BATCH_SIZE}));
+    if(!isFetchingUsers && users.length <= recordsToDisplay) {
+      if(recordsToDisplay < USERS_MAX_CATALOGUE_LENGTH) {
+        dispatch(requestUsers({results: USERS_BATCH_SIZE}));
+      } else {
+        dispatch(usersRecordsToDisplay(users.length));
+      }
     }
-  }, [dispatch, isFetchingUsers, fetchFailed, users, recordsToDisplay]);
+  }, [dispatch, isFetchingUsers, users.length, recordsToDisplay]);
 
 
   const onItemClick = user => {
@@ -32,10 +36,8 @@ const UserList = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isFetchingUsers) return;
-      if (!fetchFailed && users.length > recordsToDisplay) {
-        dispatch(usersRecordsToDisplay(users.length));
-      }
+      if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight) return;
+      dispatch(usersRecordsToDisplay(users.length));
       if(fetchFailed) {
         dispatch(resetUsersError());
       }
@@ -44,7 +46,6 @@ const UserList = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   });
-
 
   return (
     <div className="user-list">

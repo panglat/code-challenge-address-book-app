@@ -1,2 +1,2 @@
-export const USERS_BATCH_SIZE = 50;
-export const USERS_MAX_CATALOGUE_LENGTH = 1000;
+export const USERS_BATCH_SIZE = 20;
+export const USERS_MAX_CATALOGUE_LENGTH = 40000;
