@@ -1,10 +1,11 @@
 import React from 'react';
 
 import './Settings.scss';
+import NationalitySelector from '../NationalitySelector/NationalitySelector';
 
 const Settings = () => (
   <div>
-    Settings
+    <NationalitySelector />
   </div>
 );
 
