@@ -5,6 +5,7 @@ import {
   USERS_RECORD_TO_DISPLAY,
   RESET_USERS_FETCH_FAILED,
   SET_USERS_SEARCH,
+  SET_NATIONALITY_SEARCH,
 } from './actionTypes';
 
 export const requestUsers = params => ({
@@ -35,4 +36,9 @@ export const resetUsersError = () => ({
 export const setUserSearch = userSearch => ({
   type: SET_USERS_SEARCH,
   payload: { userSearch },
+});
+
+export const setNationalitySearch = nationalitySearch => ({
+  type: SET_NATIONALITY_SEARCH,
+  payload: { nationalitySearch },
 });

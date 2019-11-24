@@ -5,9 +5,13 @@ import {
   USERS_RECORD_TO_DISPLAY,
   RESET_USERS_FETCH_FAILED,
   SET_USERS_SEARCH,
+  SET_NATIONALITY_SEARCH,
 } from './actionTypes';
 
 const initialState = {
+  settings: {
+    nationalitySearch: [],
+  },
   users: {
     recordsToDisplay: 0,
     loading: false,
@@ -75,6 +79,15 @@ export default function reducer(state = initialState, action) {
           userSearch: action.payload.userSearch,
         },
       };
+
+      case SET_NATIONALITY_SEARCH:
+        return {
+          ...state,
+          settings: {
+            ...state.settings,
+            nationalitySearch: action.payload.nationalitySearch,
+          },
+        };
 
     default:
       return state;

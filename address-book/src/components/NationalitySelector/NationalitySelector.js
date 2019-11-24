@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 import { nationalities } from '../../utils/constants';
@@ -6,9 +6,12 @@ import Checkbox from '../Checkbox/Checkbox';
 
 import './NationalitySelector.scss';
 
-const NationalitySelector = ({ selectedNationalities }) => {
-  const [filter, setFilter] = useState([]);
-
+const NationalitySelector = ({
+  onSetSelectedNationalities,
+  selectedNationalities,
+}) => {
+  const [filter, setFilter] = useState(selectedNationalities);
+  
   const onCheckboxChanged = event => {
     event.stopPropagation();
     const { target } = event;
@@ -21,9 +24,14 @@ const NationalitySelector = ({ selectedNationalities }) => {
     }
   };
 
+  const handleSubmit = event => {
+    event.preventDefault();
+    onSetSelectedNationalities(filter);
+  };
+
   return (
-    <div>
-      Select from which nationalities users are fetched: debugger;
+    <form onSubmit={event => handleSubmit(event)}>
+      Select from which nationalities users are fetched:
       {Object.entries(nationalities).map(([iso, nationality]) => {
         return (
           <Checkbox
@@ -36,15 +44,18 @@ const NationalitySelector = ({ selectedNationalities }) => {
           />
         );
       })}
-    </div>
+      <input type="submit" value="Save" />
+    </form>
   );
 };
 
 NationalitySelector.propTypes = {
+  onSetSelectedNationalities: PropTypes.func,
   selectedNationalities: PropTypes.arrayOf(PropTypes.string),
 };
 
 NationalitySelector.defaultProps = {
+  onSetSelectedNationalities: () => {},
   selectedNationalities: [],
 };
 
