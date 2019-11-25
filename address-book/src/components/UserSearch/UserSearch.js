@@ -14,35 +14,22 @@ const UserSearch = () => {
     setSearch(storeUserSearch);
   }, [storeUserSearch]);
 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    dispatch(setUserSearch(search));
+  const handleChange = event => {
+    dispatch(setUserSearch(event.target.value));
   };
-
-  const handleChange = (event) => {
-    setSearch(event.target.value);
-  };
-
-  const resetSearch = () => {
-    setSearch('');
-    dispatch(setUserSearch(''));
-  }
 
   return (
-  <form onSubmit={(event) => handleSubmit(event)}>
-    <label>
-      Search:
-      <input
-        type="text"
-        value={search}
-        onChange={(event) => handleChange(event)}
-      />
-    </label>
-    <input type="submit" value="Search" />
-    <button onClick={() => resetSearch()}>Reset</button>
-  </form>
-  )
+    <form>
+      <label>
+        Search:
+        <input
+          type="text"
+          value={search}
+          onChange={event => handleChange(event)}
+        />
+      </label>
+    </form>
+  );
 };
 
 export default UserSearch;
