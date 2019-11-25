@@ -7,14 +7,14 @@ import NationalitySelector from '../NationalitySelector/NationalitySelector';
 
 import './Settings.scss';
 import { settingsNationalitySearch } from '../../store/selectors';
-import { setNationalitySearch } from '../../store/actions';
+import { setNationalitySearch, resetUsersList } from '../../store/actions';
 
 const Settings = ({history}) => {
   const dispatch = useDispatch();
   const nationalitySearch = useSelector(state => settingsNationalitySearch(state));
 
   const onSetSelectedNationalities = (values) => {
-    dispatch(setNationalitySearch(values), history.push('/'));
+    dispatch(setNationalitySearch(values),dispatch(resetUsersList(), history.push('/')));
   }
 
   return (

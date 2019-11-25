@@ -6,6 +6,7 @@ import {
   RESET_USERS_FETCH_FAILED,
   SET_USERS_SEARCH,
   SET_NATIONALITY_SEARCH,
+  RESET_USERS_LIST,
 } from './actionTypes';
 
 const initialState = {
@@ -68,6 +69,15 @@ export default function reducer(state = initialState, action) {
         users: {
           ...state.users,
           error: null,
+        },
+      };
+
+    case RESET_USERS_LIST:
+      return {
+        ...state,
+        users: {
+          ...state.users,
+          userList: [],
         },
       };
 
