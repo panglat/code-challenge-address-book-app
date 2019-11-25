@@ -12,6 +12,7 @@ import {
   userRecordsToDisplay,
   loadUserFailed,
   settingsNationalitySearch,
+  userSearch,
 } from '../../store/selectors';
 import UserListItem from './UserListItem/UserListItem';
 import UserDetailsModal from '../UserDetailsModal/UserDetailsModal';
@@ -26,6 +27,7 @@ const UserList = () => {
   const isFetchingUsers = useSelector(state => loadingUsers(state));
   const fetchFailed = useSelector(state => loadUserFailed(state));
   const recordsToDisplay = useSelector(state => userRecordsToDisplay(state));
+  const userFilterLowerCase = useSelector(state => userSearch(state)).toLowerCase();
   const selectedNationalities = useSelector(state =>
     settingsNationalitySearch(state)
   );
@@ -84,7 +86,17 @@ const UserList = () => {
     <div className="user-list">
       {users &&
         users
-          .filter((user, index) => index < recordsToDisplay)
+          .filter((user, index) => {
+            if (index >= recordsToDisplay) {
+              return false;
+            }
+            if (userFilterLowerCase) {
+              const {name} = user;
+              const fullNameLowercase =  `${name.first} ${name.last}`.toLowerCase();
+              return fullNameLowercase.includes(userFilterLowerCase);
+            }
+            return true;
+          })
           .map((user, index) => {
             return (
               <UserListItem
