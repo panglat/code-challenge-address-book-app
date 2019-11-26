@@ -1,7 +1,7 @@
-import Checkbox from './index';
+import Button from './Button';
 
-describe('Checkbox', () => {
+describe('Button', () => {
   it('should exist', () => {
-    expect(Checkbox).toBeDefined();
+    expect(Button).toBeDefined();
   });
 });

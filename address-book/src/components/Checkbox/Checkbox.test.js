@@ -1,4 +1,4 @@
-import Checkbox from './index';
+import Checkbox from './Checkbox';
 
 describe('Checkbox', () => {
   it('should exist', () => {

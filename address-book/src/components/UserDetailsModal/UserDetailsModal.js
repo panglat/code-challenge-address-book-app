@@ -28,7 +28,7 @@ UserDetailsModal.propTypes = {
       cell: PropTypes.string,
       city: PropTypes.string,
       phone: PropTypes.string,
-      postcode: PropTypes.number,
+      postcode: PropTypes.string,
       state: PropTypes.string,
       street: PropTypes.shape({
         number: PropTypes.number,
