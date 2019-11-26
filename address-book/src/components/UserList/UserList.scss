@@ -1,0 +1,23 @@
+.user-list {
+  &__loading-message {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+
+    span {
+      font-weight: bold;
+      margin-left: 10px;
+    }
+  }
+
+  &__failed-message {
+    font-weight: bold;
+    margin-left: 10px;
+    color: red;
+  }
+
+  &__end-of-user-catalog-message {
+    font-weight: bold;
+    margin-left: 10px;
+  }
+}
