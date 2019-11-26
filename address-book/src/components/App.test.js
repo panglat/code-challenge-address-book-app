@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import createSagaMiddleware from 'redux-saga';
+import App from './App';
 import configureStore from '../store/configureStore';
 
 const sagaMiddleware = createSagaMiddleware();

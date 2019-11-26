@@ -10,7 +10,7 @@ const NavBar = ({ className }) => (
     <li className="nav-bar__item">
       <NavLink
         className="nav-bar__item-link"
-        exact={true}
+        exact
         activeClassName="nav-bar__item-link--active"
         to="/"
       >

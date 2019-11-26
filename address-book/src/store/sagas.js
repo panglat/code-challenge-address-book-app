@@ -1,4 +1,6 @@
-import { call, put, takeLatest, all } from 'redux-saga/effects';
+import {
+  call, put, takeLatest, all,
+} from 'redux-saga/effects';
 import { USERS_FETCH_REQUESTED } from './actionTypes';
 import { requestUsersSuccess, requestUsersError } from './actions';
 import { getUserList } from '../apis/RandomUserAPI';

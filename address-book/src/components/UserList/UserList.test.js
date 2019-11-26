@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserList from './UserList';
 import createSagaMiddleware from 'redux-saga';
-import configureStore from '../../store/configureStore';
 import { Provider } from 'react-redux';
+import UserList from './UserList';
+import configureStore from '../../store/configureStore';
 
 const sagaMiddleware = createSagaMiddleware();
 const mockStore = configureStore([sagaMiddleware]);

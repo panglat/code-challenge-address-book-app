@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './UserList.scss';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   requestUsers,
   usersRecordsToDisplay,
   resetUsersError,
 } from '../../store/actions';
-import { useSelector, useDispatch } from 'react-redux';
 import {
   userList,
   loadingUsers,
@@ -24,16 +24,12 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const UserList = () => {
   const dispatch = useDispatch();
-  const users = useSelector(state => userList(state));
-  const isFetchingUsers = useSelector(state => loadingUsers(state));
-  const fetchFailed = useSelector(state => loadUserFailed(state));
-  const recordsToDisplay = useSelector(state => userRecordsToDisplay(state));
-  const userFilterLowerCase = useSelector(state =>
-    userSearch(state)
-  ).toLowerCase();
-  const selectedNationalities = useSelector(state =>
-    settingsNationalitySearch(state)
-  );
+  const users = useSelector((state) => userList(state));
+  const isFetchingUsers = useSelector((state) => loadingUsers(state));
+  const fetchFailed = useSelector((state) => loadUserFailed(state));
+  const recordsToDisplay = useSelector((state) => userRecordsToDisplay(state));
+  const userFilterLowerCase = useSelector((state) => userSearch(state)).toLowerCase();
+  const selectedNationalities = useSelector((state) => settingsNationalitySearch(state));
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
@@ -50,7 +46,7 @@ const UserList = () => {
               selectedNationalities && selectedNationalities.length > 0
                 ? selectedNationalities.join(',')
                 : null,
-          })
+          }),
         );
       } else {
         dispatch(usersRecordsToDisplay(users.length));
@@ -65,18 +61,17 @@ const UserList = () => {
     fetchFailed,
   ]);
 
-  const onItemClick = user => {
+  const onItemClick = (user) => {
     setSelectedUser(user);
   };
 
   useEffect(() => {
     const handleScroll = () => {
       if (
-        window.innerHeight + document.documentElement.scrollTop !==
-          document.documentElement.offsetHeight &&
-        !isFetchingUsers
-      )
-        return;
+        window.innerHeight + document.documentElement.scrollTop
+          !== document.documentElement.offsetHeight
+        && !isFetchingUsers
+      ) { return; }
       dispatch(usersRecordsToDisplay(users.length));
       if (fetchFailed) {
         dispatch(resetUsersError());
@@ -89,8 +84,8 @@ const UserList = () => {
 
   return (
     <div className="user-list">
-      {users &&
-        users
+      {users
+        && users
           .filter((user, index) => {
             if (index >= recordsToDisplay) {
               return false;
@@ -102,25 +97,27 @@ const UserList = () => {
             }
             return true;
           })
-          .map((user, index) => {
-            return (
-              <UserListItem
-                key={`${user.login.salt}`}
-                index={index}
-                onClick={() => onItemClick(user)}
-                user={user}
-              />
-            );
-          })}
+          .map((user, index) => (
+            <UserListItem
+              key={`${user.login.salt}`}
+              index={index}
+              onClick={() => onItemClick(user)}
+              user={user}
+            />
+          ))}
       {isFetchingUsers && users.length === recordsToDisplay && (
         <div className="user-list__loading-message">
           <LoadingSpinner />
           <span>Fetching users</span>
         </div>
       )}
-      {!isFetchingUsers && fetchFailed && <div className="user-list__failed-message">User fetch failed</div>}
+      {!isFetchingUsers && fetchFailed && (
+        <div className="user-list__failed-message">User fetch failed</div>
+      )}
       {users.length >= USERS_MAX_CATALOGUE_LENGTH && (
-        <div className="user-list__end-of-user-catalog-message">End of users catalog</div>
+        <div className="user-list__end-of-user-catalog-message">
+          End of users catalog
+        </div>
       )}
       {selectedUser && (
         <UserDetailsModal

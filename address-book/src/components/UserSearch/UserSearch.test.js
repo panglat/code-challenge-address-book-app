@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import UserSearch from './UserSearch';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
+import UserSearch from './UserSearch';
 import configureStore from '../../store/configureStore';
 
 const sagaMiddleware = createSagaMiddleware();

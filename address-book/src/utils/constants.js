@@ -5,4 +5,4 @@ export const nationalities = {
   es: 'Spanish',
   fr: 'French',
   gb: 'British',
-}
+};

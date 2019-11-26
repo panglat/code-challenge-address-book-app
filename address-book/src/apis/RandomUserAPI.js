@@ -7,7 +7,7 @@ const RandomUserAPI = axios.create({
 export const DEFAULT_GET_USER_LIST_RESULTS = 10;
 
 export const getUserList = async (
-  params = { results: DEFAULT_GET_USER_LIST_RESULTS, nationalitySelection: null }
+  params = { results: DEFAULT_GET_USER_LIST_RESULTS, nationalitySelection: null },
 ) => {
   try {
     const response = await RandomUserAPI.get('', {
@@ -18,6 +18,7 @@ export const getUserList = async (
     });
     return response.data.results;
   } catch (err) {
+    // eslint-disable-next-line no-console
     console.log(err);
     throw err;
   }

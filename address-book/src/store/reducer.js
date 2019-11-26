@@ -90,14 +90,14 @@ export default function reducer(state = initialState, action) {
         },
       };
 
-      case SET_NATIONALITY_SEARCH:
-        return {
-          ...state,
-          settings: {
-            ...state.settings,
-            nationalitySearch: action.payload.nationalitySearch,
-          },
-        };
+    case SET_NATIONALITY_SEARCH:
+      return {
+        ...state,
+        settings: {
+          ...state.settings,
+          nationalitySearch: action.payload.nationalitySearch,
+        },
+      };
 
     default:
       return state;

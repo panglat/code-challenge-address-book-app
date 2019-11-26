@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -23,7 +24,7 @@ const UserDetailsModal = ({ user, ...rest }) => {
 
 UserDetailsModal.propTypes = {
   user: PropTypes.shape({
-    user: PropTypes.shape({ first: PropTypes.string, last: PropTypes.string }),
+    name: PropTypes.shape({ first: PropTypes.string, last: PropTypes.string }),
     location: PropTypes.shape({
       cell: PropTypes.string,
       city: PropTypes.string,
@@ -35,6 +36,8 @@ UserDetailsModal.propTypes = {
         name: PropTypes.string,
       }),
     }),
+    phone: PropTypes.string,
+    cell: PropTypes.string,
   }).isRequired,
 };
 

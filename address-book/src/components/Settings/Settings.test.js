@@ -12,6 +12,13 @@ const mockStore = configureStore([sagaMiddleware]);
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Provider store={mockStore}><MemoryRouter><Settings /></MemoryRouter></Provider>, div);
+  ReactDOM.render(
+    <Provider store={mockStore}>
+      <MemoryRouter>
+        <Settings />
+      </MemoryRouter>
+    </Provider>,
+    div,
+  );
   ReactDOM.unmountComponentAtNode(div);
 });

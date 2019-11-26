@@ -12,7 +12,7 @@ export default function configureStore(preloadedState = {}) {
   const composeEnhancers = composeWithDevTools({
     // Specify name here, actionsBlacklist, actionsCreators and other options if needed
   });
-  
+
   // mount it on the Store
   const store = createStore(reducer, composeEnhancers(applyMiddleware(sagaMiddleware)));
 

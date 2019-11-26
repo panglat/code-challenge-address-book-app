@@ -1,6 +1,6 @@
 import React from 'react';
-import { render, unmountComponentAtNode } from "react-dom";
-import { act } from "react-dom/test-utils";
+import { render, unmountComponentAtNode } from 'react-dom';
+import { act } from 'react-dom/test-utils';
 import UserListItem from './UserListItem';
 
 const userMock = {
@@ -63,7 +63,7 @@ const userMock = {
 let container = null;
 beforeEach(() => {
   // setup a DOM element as a render target
-  container = document.createElement("div");
+  container = document.createElement('div');
   document.body.appendChild(container);
 });
 
@@ -74,12 +74,12 @@ afterEach(() => {
   container = null;
 });
 
-it("renders UserListItem", () => {
+it('renders UserListItem', () => {
   act(() => {
     render(<UserListItem user={userMock} />, container);
   });
-  expect(container.querySelector("img").src).toBe(userMock.picture.thumbnail);
-  expect(container.querySelector(".user-list-item__full-name").textContent).toBe(`Name: ${userMock.name.first} ${userMock.name.last}`);
-  expect(container.querySelector(".user-list-item__user-name").textContent).toBe(`Username: ${userMock.login.username}`);
-  expect(container.querySelector(".user-list-item__email").textContent).toBe(`Email: ${userMock.email}`);
+  expect(container.querySelector('img').src).toBe(userMock.picture.thumbnail);
+  expect(container.querySelector('.user-list-item__full-name').textContent).toBe(`Name: ${userMock.name.first} ${userMock.name.last}`);
+  expect(container.querySelector('.user-list-item__user-name').textContent).toBe(`Username: ${userMock.login.username}`);
+  expect(container.querySelector('.user-list-item__email').textContent).toBe(`Email: ${userMock.email}`);
 });

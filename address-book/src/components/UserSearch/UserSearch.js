@@ -7,27 +7,28 @@ import { userSearch } from '../../store/selectors';
 import './UserSearch.scss';
 import { setUserSearch } from '../../store/actions';
 
-const UserSearch = ({className}) => {
+const UserSearch = ({ className }) => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
-  const storeUserSearch = useSelector(state => userSearch(state));
+  const storeUserSearch = useSelector((state) => userSearch(state));
 
   useEffect(() => {
     setSearch(storeUserSearch);
   }, [storeUserSearch]);
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     dispatch(setUserSearch(event.target.value));
   };
 
   return (
     <form className={cn('user-search', className)}>
-      <label>
+      <label htmlFor="searchInput">
         Search:
         <input
+          id="searchInput"
           type="text"
           value={search}
-          onChange={event => handleChange(event)}
+          onChange={(event) => handleChange(event)}
         />
       </label>
     </form>

@@ -9,17 +9,23 @@ import './Settings.scss';
 import { settingsNationalitySearch } from '../../store/selectors';
 import { setNationalitySearch, resetUsersList } from '../../store/actions';
 
-const Settings = ({history}) => {
+const Settings = ({ history }) => {
   const dispatch = useDispatch();
-  const nationalitySearch = useSelector(state => settingsNationalitySearch(state));
+  const nationalitySearch = useSelector((state) => settingsNationalitySearch(state));
 
   const onSetSelectedNationalities = (values) => {
-    dispatch(setNationalitySearch(values),dispatch(resetUsersList(), history.push('/')));
-  }
+    dispatch(
+      setNationalitySearch(values),
+      dispatch(resetUsersList(), history.push('/')),
+    );
+  };
 
   return (
     <div>
-      <NationalitySelector selectedNationalities={nationalitySearch} onSetSelectedNationalities={(value) => onSetSelectedNationalities(value)} />
+      <NationalitySelector
+        selectedNationalities={nationalitySearch}
+        onSetSelectedNationalities={(value) => onSetSelectedNationalities(value)}
+      />
     </div>
   );
 };
@@ -27,7 +33,7 @@ const Settings = ({history}) => {
 Settings.propTypes = {
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
-  })
+  }),
 };
 
 Settings.defaultProps = {

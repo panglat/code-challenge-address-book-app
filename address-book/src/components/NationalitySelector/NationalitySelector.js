@@ -15,39 +15,37 @@ const NationalitySelector = ({
   selectedNationalities,
 }) => {
   const [filter, setFilter] = useState(selectedNationalities);
-  
-  const onCheckboxChanged = event => {
+
+  const onCheckboxChanged = (event) => {
     event.stopPropagation();
     const { target } = event;
     const { name } = target;
 
     if (filter.includes(name)) {
-      setFilter(filter.filter(chk => chk !== name));
+      setFilter(filter.filter((chk) => chk !== name));
     } else {
       setFilter([...filter, name]);
     }
   };
 
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     onSetSelectedNationalities(filter);
   };
 
   return (
-    <form className={cn('nationality-selector', className)} onSubmit={event => handleSubmit(event)}>
+    <form className={cn('nationality-selector', className)} onSubmit={(event) => handleSubmit(event)}>
       <p>Select from which nationalities users are fetched:</p>
-      {Object.entries(nationalities).map(([iso, nationality]) => {
-        return (
-          <Checkbox
-            checked={filter.includes(iso)}
-            id={iso}
-            key={iso}
-            label={nationality}
-            name={iso}
-            onChange={event => onCheckboxChanged(event)}
-          />
-        );
-      })}
+      {Object.entries(nationalities).map(([iso, nationality]) => (
+        <Checkbox
+          checked={filter.includes(iso)}
+          id={iso}
+          key={iso}
+          label={nationality}
+          name={iso}
+          onChange={(event) => onCheckboxChanged(event)}
+        />
+      ))}
       <Button type="submit">Save</Button>
       <Link to="/"><Button buttonType="secondary">Cancel</Button></Link>
     </form>

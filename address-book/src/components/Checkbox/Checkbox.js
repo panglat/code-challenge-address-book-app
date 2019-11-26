@@ -10,7 +10,7 @@ const Checkbox = ({
   name,
   onChange,
 }) => (
-  <div className='checkbox'>
+  <div className="checkbox">
     <input className="checkbox__input" type="checkbox" id={id} name={name} checked={checked} onChange={onChange} />
     <label className="checkbox__label" htmlFor={id}>{label}</label>
   </div>
