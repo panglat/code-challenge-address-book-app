@@ -70,7 +70,7 @@ beforeEach(() => {
 
 afterEach(() => {
   // cleanup on exiting
-  ReactDOM.unmountComponentAtNode(container);
+  unmountComponentAtNode(container);
   container.remove();
   container = null;
 });
