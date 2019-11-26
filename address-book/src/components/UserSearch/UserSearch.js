@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
 import { userSearch } from '../../store/selectors';
 
 import './UserSearch.scss';
 import { setUserSearch } from '../../store/actions';
 
-const UserSearch = () => {
+const UserSearch = ({className}) => {
   const [search, setSearch] = useState('');
   const dispatch = useDispatch();
   const storeUserSearch = useSelector(state => userSearch(state));
@@ -19,7 +21,7 @@ const UserSearch = () => {
   };
 
   return (
-    <form>
+    <form className={cn('user-search', className)}>
       <label>
         Search:
         <input
@@ -30,6 +32,14 @@ const UserSearch = () => {
       </label>
     </form>
   );
+};
+
+UserSearch.propTypes = {
+  className: PropTypes.string,
+};
+
+UserSearch.defaultProps = {
+  className: '',
 };
 
 export default UserSearch;

@@ -12,6 +12,7 @@ const App = ({ store }) => {
   return (
     <Provider store={store}>
       <Router>
+      <Header />
         <Switch>
           <Route path="/settings">
             <Main>
@@ -19,7 +20,6 @@ const App = ({ store }) => {
             </Main>
           </Route>
           <Route path="/">
-            <Header />
             <Main>
               <UserList />
             </Main>
