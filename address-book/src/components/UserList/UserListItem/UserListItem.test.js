@@ -83,5 +83,4 @@ it("renders UserListItem", () => {
   expect(container.querySelector(".user-list-item__full-name").textContent).toBe(`Name: ${userMock.name.first} ${userMock.name.last}`);
   expect(container.querySelector(".user-list-item__user-name").textContent).toBe(`Username: ${userMock.login.username}`);
   expect(container.querySelector(".user-list-item__email").textContent).toBe(`Email: ${userMock.email}`);
-
 });
