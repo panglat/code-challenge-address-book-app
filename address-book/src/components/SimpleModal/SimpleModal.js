@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './SimpleModal.scss';
 import Button from '../Button/Button';
@@ -13,5 +14,16 @@ const SimpleModal = ({ children, onCloseModal }) => (
     </section>
   </div>
 );
+
+SimpleModal.propTypes = {
+  children: PropTypes.node,
+  onCloseModal: PropTypes.func,
+};
+
+SimpleModal.defaultProps = {
+  children: null,
+  onCloseModal: () => {},
+};
+
 
 export default SimpleModal;

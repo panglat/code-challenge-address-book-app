@@ -7,7 +7,7 @@ import './NavBar.scss';
 
 const NavBar = ({ className }) => (
   <ul className={cn('nav-bar', className)}>
-    <li class="nav-bar__item">
+    <li className="nav-bar__item">
       <NavLink
         className="nav-bar__item-link"
         exact={true}
@@ -17,7 +17,7 @@ const NavBar = ({ className }) => (
         Home
       </NavLink>
     </li>
-    <li class="nav-bar__item">
+    <li className="nav-bar__item">
       <NavLink
         className="nav-bar__item-link"
         activeClassName="nav-bar__item-link--active"

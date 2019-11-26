@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
 import './Header.scss';
 import UserSearch from '../UserSearch/UserSearch';

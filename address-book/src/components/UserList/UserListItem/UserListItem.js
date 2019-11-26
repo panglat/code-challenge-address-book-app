@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './UserListItem.scss';
 
@@ -18,6 +19,18 @@ const UserListItem = ({ index, user, ...rest }) => {
       </div>
     </div>
   );
+};
+
+UserListItem.propTypes = {
+  user: PropTypes.shape({
+    user: PropTypes.shape({
+      email: PropTypes.string,
+      first: PropTypes.string,
+      login: PropTypes.shape({ username: PropTypes.string }),
+      last: PropTypes.string,
+      picture: PropTypes.shape({ thumbnail: PropTypes.string }),
+    }),
+  }).isRequired,
 };
 
 export default UserListItem;

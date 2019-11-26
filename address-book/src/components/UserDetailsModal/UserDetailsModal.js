@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './UserDetailsModal.scss';
 import SimpleModal from '../SimpleModal/SimpleModal';
 
@@ -17,6 +19,23 @@ const UserDetailsModal = ({ user, ...rest }) => {
       </div>
     </SimpleModal>
   );
+};
+
+UserDetailsModal.propTypes = {
+  user: PropTypes.shape({
+    user: PropTypes.shape({ first: PropTypes.string, last: PropTypes.string }),
+    location: PropTypes.shape({
+      cell: PropTypes.string,
+      city: PropTypes.string,
+      phone: PropTypes.string,
+      postcode: PropTypes.number,
+      state: PropTypes.string,
+      street: PropTypes.shape({
+        number: PropTypes.number,
+        name: PropTypes.string,
+      }),
+    }),
+  }).isRequired,
 };
 
 export default UserDetailsModal;
