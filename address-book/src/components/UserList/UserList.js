@@ -69,7 +69,7 @@ const UserList = () => {
     const handleScroll = () => {
       if (
         window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight
+        document.documentElement.offsetHeight && !isFetchingUsers
       )
         return;
       dispatch(usersRecordsToDisplay(users.length));
