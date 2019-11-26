@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import NationalitySelector from '../NationalitySelector/NationalitySelector';
 
@@ -20,7 +20,6 @@ const Settings = ({history}) => {
   return (
     <div>
       <NationalitySelector selectedNationalities={nationalitySearch} onSetSelectedNationalities={(value) => onSetSelectedNationalities(value)} />
-      <Link to='/'><button>Cancel</button></Link>
     </div>
   );
 };

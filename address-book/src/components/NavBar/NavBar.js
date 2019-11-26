@@ -5,15 +5,24 @@ import { NavLink } from 'react-router-dom';
 
 import './NavBar.scss';
 
-const NavBar = ({className }) => (
+const NavBar = ({ className }) => (
   <ul className={cn('nav-bar', className)}>
     <li class="nav-bar__item">
-      <NavLink className="nav-bar__item-link" exact={true} activeClassName="nav-bar__item-link--active" to="/">
+      <NavLink
+        className="nav-bar__item-link"
+        exact={true}
+        activeClassName="nav-bar__item-link--active"
+        to="/"
+      >
         Home
       </NavLink>
     </li>
     <li class="nav-bar__item">
-      <NavLink className="nav-bar__item-link" activeClassName="nav-bar__item-link--active" to="/settings">
+      <NavLink
+        className="nav-bar__item-link"
+        activeClassName="nav-bar__item-link--active"
+        to="/settings"
+      >
         Settings
       </NavLink>
     </li>
