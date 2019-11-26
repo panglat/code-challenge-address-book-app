@@ -29,7 +29,7 @@ UserDetailsModal.propTypes = {
       cell: PropTypes.string,
       city: PropTypes.string,
       phone: PropTypes.string,
-      postcode: PropTypes.string,
+      postcode: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
       state: PropTypes.string,
       street: PropTypes.shape({
         number: PropTypes.number,
