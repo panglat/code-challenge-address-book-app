@@ -3,17 +3,19 @@ import './UserList.scss';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   requestUsers,
-  usersRecordsToDisplay,
+  setUsersRecordsToDisplay,
   resetUsersError,
-} from '../../store/actions';
+} from '../../store/users/actions';
 import {
-  userList,
-  loadingUsers,
-  userRecordsToDisplay,
-  loadUserFailed,
-  settingsNationalitySearch,
-  userSearch,
-} from '../../store/selectors';
+  userList as userListSelector,
+  loadingUsers as loadingUsersSelector,
+  userRecordsToDisplay as userRecordsToDisplaySelector,
+  loadUserFailed as loadUserFailedSelector,
+  userSearch as userSearchSelector,
+} from '../../store/users/selectors';
+import {
+  nationalitySearch as nationalitySearchSelector,
+} from '../../store/settings/selectors';
 import UserListItem from './UserListItem/UserListItem';
 import UserDetailsModal from '../UserDetailsModal/UserDetailsModal';
 import {
@@ -24,16 +26,16 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
 const UserList = () => {
   const dispatch = useDispatch();
-  const users = useSelector((state) => userList(state));
-  const isFetchingUsers = useSelector((state) => loadingUsers(state));
-  const fetchFailed = useSelector((state) => loadUserFailed(state));
-  const recordsToDisplay = useSelector((state) => userRecordsToDisplay(state));
-  const userFilterLowerCase = useSelector((state) => userSearch(state)).toLowerCase();
-  const selectedNationalities = useSelector((state) => settingsNationalitySearch(state));
+  const users = useSelector((state) => userListSelector(state));
+  const isFetchingUsers = useSelector((state) => loadingUsersSelector(state));
+  const fetchFailed = useSelector((state) => loadUserFailedSelector(state));
+  const recordsToDisplay = useSelector((state) => userRecordsToDisplaySelector(state));
+  const userFilterLowerCase = useSelector((state) => userSearchSelector(state)).toLowerCase();
+  const selectedNationalities = useSelector((state) => nationalitySearchSelector(state));
   const [selectedUser, setSelectedUser] = useState(null);
 
   useEffect(() => {
-    dispatch(usersRecordsToDisplay(USERS_BATCH_SIZE));
+    dispatch(setUsersRecordsToDisplay(USERS_BATCH_SIZE));
   }, [dispatch]);
 
   useEffect(() => {
@@ -41,15 +43,15 @@ const UserList = () => {
       if (recordsToDisplay < USERS_MAX_CATALOGUE_LENGTH && !fetchFailed) {
         dispatch(
           requestUsers({
-            results: USERS_BATCH_SIZE,
-            nationalitySelection:
+            listLength: USERS_BATCH_SIZE,
+            nationalities:
               selectedNationalities && selectedNationalities.length > 0
                 ? selectedNationalities.join(',')
                 : null,
           }),
         );
       } else {
-        dispatch(usersRecordsToDisplay(users.length));
+        dispatch(setUsersRecordsToDisplay(users.length));
       }
     }
   }, [
@@ -72,7 +74,7 @@ const UserList = () => {
           !== document.documentElement.offsetHeight
         && !isFetchingUsers
       ) { return; }
-      dispatch(usersRecordsToDisplay(users.length));
+      dispatch(setUsersRecordsToDisplay(users.length));
       if (fetchFailed) {
         dispatch(resetUsersError());
       }

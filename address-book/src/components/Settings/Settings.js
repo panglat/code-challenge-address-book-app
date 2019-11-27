@@ -2,27 +2,27 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-
-import NationalitySelector from '../NationalitySelector/NationalitySelector';
+import { nationalitySearch as nationalitySearchSelector } from '../../store/settings/selectors';
+import { setNationalitySearch } from '../../store/settings/actions';
+import { clearUsersList } from '../../store/users/actions';
+import NationalitySelectorComponent from '../NationalitySelector/NationalitySelector';
 
 import './Settings.scss';
-import { settingsNationalitySearch } from '../../store/selectors';
-import { setNationalitySearch, resetUsersList } from '../../store/actions';
 
 const Settings = ({ history }) => {
   const dispatch = useDispatch();
-  const nationalitySearch = useSelector((state) => settingsNationalitySearch(state));
+  const nationalitySearch = useSelector((state) => nationalitySearchSelector(state));
 
   const onSetSelectedNationalities = (values) => {
     dispatch(
       setNationalitySearch(values),
-      dispatch(resetUsersList(), history.push('/')),
+      dispatch(clearUsersList(), history.push('/')),
     );
   };
 
   return (
     <div>
-      <NationalitySelector
+      <NationalitySelectorComponent
         selectedNationalities={nationalitySearch}
         onSetSelectedNationalities={(value) => onSetSelectedNationalities(value)}
       />
