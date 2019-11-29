@@ -19,11 +19,6 @@ code {
   font-size: 18px;
 }
 
-html {
-  box-sizing: border-box;
-  font-size: 18px;
-}
-
 *, *:before, *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }

@@ -1,4 +1,10 @@
 .user-list {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  max-width: 780px;
+  margin: auto;
+
   &__loading-message {
     margin-left: 10px;
     display: flex;

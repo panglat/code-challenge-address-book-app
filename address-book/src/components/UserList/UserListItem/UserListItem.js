@@ -10,11 +10,13 @@ const UserListItem = ({ user, ...rest }) => {
   } = user;
   return (
     <div className="user-list-item" {...rest}>
-      <img
-        alt={`${name.first} ${name.last}`}
-        src={picture.thumbnail}
-        className="user-list-item__thumbnail"
-      />
+      <div className="user-list-item__image">
+        <img
+          alt={`${name.first} ${name.last}`}
+          src={picture.thumbnail}
+          className="user-list-item__image-thumbnail"
+        />
+      </div>
       <div className="user-list-item__user-information">
         <h2 className="user-list-item__full-name">Name: {name.first} {name.last}</h2>
         <p className="user-list-item__user-name">Username: {login.username}</p>
