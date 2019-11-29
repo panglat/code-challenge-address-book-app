@@ -118,7 +118,7 @@ const UserList = ({ className }) => {
               />
             ))}
       </div>
-      {isFetchingUsers && users.length === recordsToDisplay && (
+      {isFetchingUsers && (
         <div className="user-list__loading-message">
           <LoadingSpinner />
           <span>Fetching users</span>
