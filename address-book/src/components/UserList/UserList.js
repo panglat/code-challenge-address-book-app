@@ -87,7 +87,8 @@ const UserList = ({ className }) => {
       }
     };
 
-    userListRef.current.addEventListener('scroll', handleScroll);
+    current.addEventListener('scroll', handleScroll);
+    // eslint-disable-next-line consistent-return
     return () => {
       current.removeEventListener('scroll', handleScroll);
     };

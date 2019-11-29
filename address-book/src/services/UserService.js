@@ -5,7 +5,7 @@
 import RandomUserAPI from '../utils/api/RandomUserAPI';
 
 /**
- * @constant {number} DEFAULT_USER_LIST_LENGTH the default number of records to get from the 
+ * @constant {number} DEFAULT_USER_LIST_LENGTH the default number of records to get from the
  * users list
  */
 const DEFAULT_USER_LIST_LENGTH = 10;
