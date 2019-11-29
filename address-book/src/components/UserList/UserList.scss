@@ -1,12 +1,16 @@
 .user-list {
   display: flex;
   flex-direction: column;
-  width: 90%;
-  max-width: 780px;
   margin: auto;
+  overflow-y: auto;
+  align-items: center;
+
+  &__container {
+    width: 90%;
+    max-width: 780px;
+  }
 
   &__loading-message {
-    margin-left: 10px;
     display: flex;
     align-items: center;
 

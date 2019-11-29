@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import './UserList.scss';
+import React, { useEffect, useState, useRef } from 'react';
+import PropTypes from 'prop-types';
+import cn from 'classnames';
 import { useSelector, useDispatch } from 'react-redux';
+
 import {
   requestUsers,
   setUsersRecordsToDisplay,
@@ -24,7 +26,9 @@ import {
 } from '../../utils/constants';
 import LoadingSpinner from '../LoadingSpinner/LoadingSpinner';
 
-const UserList = () => {
+import './UserList.scss';
+
+const UserList = ({ className }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => userListSelector(state));
   const isFetchingUsers = useSelector((state) => loadingUsersSelector(state));
@@ -33,6 +37,7 @@ const UserList = () => {
   const userFilterLowerCase = useSelector((state) => userSearchSelector(state)).toLowerCase();
   const selectedNationalities = useSelector((state) => nationalitySearchSelector(state));
   const [selectedUser, setSelectedUser] = useState(null);
+  const userListRef = useRef(null);
 
   useEffect(() => {
     dispatch(setUsersRecordsToDisplay(USERS_BATCH_SIZE));
@@ -68,45 +73,51 @@ const UserList = () => {
   };
 
   useEffect(() => {
+    if (!userListRef) return;
+    const { current } = userListRef;
     const handleScroll = () => {
       if (
-        window.innerHeight + document.documentElement.scrollTop
-          !== document.documentElement.offsetHeight
-        && !isFetchingUsers
-      ) { return; }
+        current.offsetHeight + current.scrollTop !== current.scrollHeight && !isFetchingUsers
+      ) {
+        return;
+      }
       dispatch(setUsersRecordsToDisplay(users.length));
       if (fetchFailed) {
         dispatch(resetUsersError());
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  });
+    userListRef.current.addEventListener('scroll', handleScroll);
+    return () => {
+      current.removeEventListener('scroll', handleScroll);
+    };
+  }, [dispatch, fetchFailed, isFetchingUsers, userListRef, users.length]);
 
   return (
-    <div className="user-list">
-      {users
-        && users
-          .filter((user, index) => {
-            if (index >= recordsToDisplay) {
-              return false;
-            }
-            if (userFilterLowerCase) {
-              const { name } = user;
-              const fullNameLowercase = `${name.first} ${name.last}`.toLowerCase();
-              return fullNameLowercase.includes(userFilterLowerCase);
-            }
-            return true;
-          })
-          .map((user, index) => (
-            <UserListItem
-              key={`${user.login.salt}`}
-              index={index}
-              onClick={() => onItemClick(user)}
-              user={user}
-            />
-          ))}
+    <div className={cn('user-list', className)} ref={userListRef}>
+      <div className="user-list__container">
+        {users
+          && users
+            .filter((user, index) => {
+              if (index >= recordsToDisplay) {
+                return false;
+              }
+              if (userFilterLowerCase) {
+                const { name } = user;
+                const fullNameLowercase = `${name.first} ${name.last}`.toLowerCase();
+                return fullNameLowercase.includes(userFilterLowerCase);
+              }
+              return true;
+            })
+            .map((user, index) => (
+              <UserListItem
+                key={`${user.login.salt}`}
+                index={index}
+                onClick={() => onItemClick(user)}
+                user={user}
+              />
+            ))}
+      </div>
       {isFetchingUsers && users.length === recordsToDisplay && (
         <div className="user-list__loading-message">
           <LoadingSpinner />
@@ -130,5 +141,14 @@ const UserList = () => {
     </div>
   );
 };
+
+UserList.propTypes = {
+  className: PropTypes.string,
+};
+
+UserList.defaultProps = {
+  className: '',
+};
+
 
 export default UserList;

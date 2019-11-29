@@ -1,0 +1,9 @@
+.users {
+  &__user-search {
+    height: 50px;
+  }
+
+  &__user-list {
+    height: calc(100vh - 110px);
+  }
+}

@@ -7,7 +7,7 @@ import './App.scss';
 import Header from './Header/Header';
 import Main from './Main/Main';
 
-const UserList = lazy(() => import(/* webpackPrefetch: true */ './UserList/UserList'));
+const Users = lazy(() => import(/* webpackPrefetch: true */ './Users/Users'));
 const Settings = lazy(() => import(/* webpackPrefetch: true */ './Settings/Settings'));
 
 const App = ({ store }) => (
@@ -23,7 +23,7 @@ const App = ({ store }) => (
           </Route>
           <Route path="/">
             <Main>
-              <UserList />
+              <Users />
             </Main>
           </Route>
         </Switch>
