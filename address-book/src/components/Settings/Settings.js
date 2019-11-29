@@ -21,7 +21,7 @@ const Settings = ({ history }) => {
   };
 
   return (
-    <div>
+    <div className="settings">
       <NationalitySelectorComponent
         selectedNationalities={nationalitySearch}
         onSetSelectedNationalities={(value) => onSetSelectedNationalities(value)}
