@@ -3,6 +3,14 @@
   align-items: center;
   cursor: pointer;
 
+  &:nth-child(even) {
+    background: #cacaca;
+  }
+
+  &:nth-child(odd) {
+    background: #dedede;
+  }
+
   &__image {
     display: flex;
     justify-content: center;
@@ -20,6 +28,7 @@
     padding: 10px;
   }
   &__full-name, &__user-name, &__email {
+    word-break: break-word;
     margin: 0;
   }
 }
