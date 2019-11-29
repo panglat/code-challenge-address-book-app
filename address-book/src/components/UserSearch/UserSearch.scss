@@ -1,7 +1,11 @@
 .user-search {
+  display: flex;
+  justify-content: center;
+
   label {
     margin: 0 5px;
   }
+  
   input {
     margin: 0 5px;
   }
