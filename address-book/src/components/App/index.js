@@ -3,9 +3,12 @@ import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-import './styles.scss';
 import Header from '../base-components/Header';
 import Main from '../base-components/Main';
+
+import NavBar from '../app-components/NavBar';
+
+import './styles.scss';
 
 const Users = lazy(() => import(/* webpackPrefetch: true */ '../app-components/Users'));
 const Settings = lazy(() => import(/* webpackPrefetch: true */ '../app-components/Settings'));
@@ -14,7 +17,9 @@ const App = ({ store }) => (
   <Provider store={store}>
     <Router>
       <Suspense fallback={<div>Loading...</div>}>
-        <Header />
+        <Header>
+          <NavBar />
+        </Header>
         <Switch>
           <Route path="/settings">
             <Main>

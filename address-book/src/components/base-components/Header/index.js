@@ -1,12 +1,20 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import './styles.scss';
-import NavBar from '../../app-components/NavBar';
 
-const Header = () => (
+const Header = ({ children }) => (
   <header className="header">
-    <NavBar />
+    {children}
   </header>
 );
+
+Header.propTypes = {
+  children: PropTypes.node,
+};
+
+Header.defaultProps = {
+  children: null,
+};
 
 export default Header;
