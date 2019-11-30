@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import SimpleModal from './index';
 
 it('renders without crashing', () => {

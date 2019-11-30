@@ -2,9 +2,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import './styles.scss';
-
 import SimpleModal from '../../base-components/SimpleModal';
+
+import './styles.scss';
 
 const UserDetailsModal = ({ user, ...rest }) => {
   const { location, name } = user;
