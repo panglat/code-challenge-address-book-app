@@ -1,3 +1,8 @@
+
+/**
+ * @file Render an html main.
+ * @module base-components/Main
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

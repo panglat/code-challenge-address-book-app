@@ -1,6 +1,6 @@
 /**
  * @file Manages Settings Redux action types
- * @module UsersActionTypes
+ * @module redux/UsersActionTypes
  */
 
 /**

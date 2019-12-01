@@ -1,3 +1,7 @@
+/**
+ * @file Render a checkbox with a label.
+ * @module base-components/Checkbox
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,6 +1,6 @@
 /**
  * @file Manages user requests.
- * @module UserService
+ * @module services/UserService
  */
 import RandomUserAPI from '../utils/api/RandomUserAPI';
 

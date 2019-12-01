@@ -1,3 +1,7 @@
+/**
+ * @file Render the Users route.
+ * @module app-components/Users
+ */
 import React from 'react';
 
 import UserSearch from '../UserSearch';

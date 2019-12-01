@@ -1,3 +1,7 @@
+/**
+ * @file Render the navigation bar.
+ * @module app-components/NationalitySelector
+ */
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -9,6 +13,9 @@ import Button from '../../base-components/Button';
 
 import './styles.scss';
 
+/**
+ * @lends module:app-components/NationalitySelector
+ */
 const NationalitySelector = ({
   className,
   onSetSelectedNationalities,
@@ -16,6 +23,10 @@ const NationalitySelector = ({
 }) => {
   const [filter, setFilter] = useState(selectedNationalities);
 
+  /**
+   * Manage checkboxes onChange event and change the filter
+   * @param {event} event checkbox OnChange event handler
+   */
   const onCheckboxChanged = (event) => {
     event.stopPropagation();
     const { target } = event;
@@ -28,6 +39,10 @@ const NationalitySelector = ({
     }
   };
 
+  /**
+   * Manage checkboxes onChange event and change the filter
+   * @param {event} event form  event handler
+   */
   const handleSubmit = (event) => {
     event.preventDefault();
     onSetSelectedNationalities(filter);

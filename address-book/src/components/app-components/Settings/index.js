@@ -1,3 +1,8 @@
+/**
+ * @file Render the Settings route.
+ * @module app-components/Settings
+ */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
@@ -11,10 +16,17 @@ import NationalitySelectorComponent from '../NationalitySelector';
 
 import './styles.scss';
 
+/**
+ * @lends module:app-components/Settings
+ */
 const Settings = ({ history }) => {
   const dispatch = useDispatch();
   const nationalitySearch = useSelector((state) => nationalitySearchSelector(state));
 
+  /**
+   * called the the user selects some nationalities and press the save button
+   * @param {array} values selected nationalities
+   */
   const onSetSelectedNationalities = (values) => {
     dispatch(
       setNationalitySearch(values),

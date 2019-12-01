@@ -1,3 +1,8 @@
+/**
+ * @file Render the user details modal
+ * @module app-components/UserDetailsModal
+ */
+
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';

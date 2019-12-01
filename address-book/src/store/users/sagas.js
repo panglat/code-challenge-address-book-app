@@ -1,3 +1,7 @@
+/**
+ * @file Manages redux-sagas
+ * @module redux/sagas
+ */
 import {
   call, put, takeLatest, all,
 } from 'redux-saga/effects';

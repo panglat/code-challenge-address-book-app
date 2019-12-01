@@ -1,3 +1,7 @@
+/**
+ * @file Render the user list.
+ * @module app-components/UserList
+ */
 import React, { useEffect, useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';
@@ -28,6 +32,9 @@ import LoadingSpinner from '../../base-components/LoadingSpinner';
 
 import './styles.scss';
 
+/**
+ * @lends module:app-components/UserList
+ */
 const UserList = ({ className }) => {
   const dispatch = useDispatch();
   const users = useSelector((state) => userListSelector(state));
@@ -39,11 +46,42 @@ const UserList = ({ className }) => {
   const [selectedUser, setSelectedUser] = useState(null);
   const userListRef = useRef(null);
 
+  /**
+   * HOW USERS ARE PRE-EMPTIVELY FETCHED
+   * The all users are stored *users* array. There is also a *recordsToDisplay*
+   * variable saving the number of users to be displayed in the UI user list.
+   * At the beginning the *recordsToDisplay* is set to USERS_BATCH_SIZE, making the useEffect
+   * to bring the first batch of users. Now *users*.length === *recordsToDisplay*,
+   * and a new pre-emptively fetch will be dispatched.
+   * Everytime the users length is lesser or equals to *recordsToDisplay*, a
+   * new pre-emptively user fetch will be dispatched.
+   * Once the new batch of user if fetched, they will be added at the end of the
+   * *users* list but they will not be displayed in the UI user list due to
+   * *recordsToDisplay* will not be updated with the new *users* list length.
+   * Once the user scroll to the button of the page, *recordsToDisplay* will be
+   * equal to *users* length, displaying in the full user list users in the UI,
+   * and a new pre-emptively user fetch will be dispatched.
+   */
+
+  /**
+   * Once the component is loaded, *recordsToDisplay* will be set with the first batch of users
+   */
   useEffect(() => {
     dispatch(setUsersRecordsToDisplay(USERS_BATCH_SIZE));
   }, [dispatch]);
 
+  /**
+   * This effect fetches a batch of users.
+   */
   useEffect(() => {
+    /**
+     * Everytime the users length is lesser or equals to *recordsToDisplay*, a
+     * new pre-emptively user fetch will be dispatched.
+     * The pre-emptively user fetch will not be dispatched if the is a previous 
+     * fetch is being in process or the end of the catalog has been reached.
+     * Once the end of user catalog is reached, the last batch of user is
+     * displayed in the UI list by setting *recordsToDisplay* = *users*.length
+     */
     if (!isFetchingUsers && users.length <= recordsToDisplay) {
       if (recordsToDisplay < USERS_MAX_CATALOGUE_LENGTH && !fetchFailed) {
         dispatch(
@@ -72,26 +110,39 @@ const UserList = ({ className }) => {
     setSelectedUser(user);
   };
 
+  /**
+   * this effect manages the infinite scroll
+   */
   useEffect(() => {
     if (!userListRef) return;
     const { current } = userListRef;
+
+    /**
+     * Manage the user list scroll
+     */
     const handleScroll = () => {
       if (
         current.offsetHeight + current.scrollTop !== current.scrollHeight && !isFetchingUsers
       ) {
+        // The user has not reached the bottom of the list
         return;
       }
+      /**
+       * If the user reaches the bottom of the page, *recordsToDisplay* is set with *users*.length
+       * and any previous request error being is reset.
+       */
       dispatch(setUsersRecordsToDisplay(users.length));
       if (fetchFailed) {
         dispatch(resetUsersError());
       }
     };
 
+    // Subscribe to the scroll event
     current.addEventListener('scroll', handleScroll);
-    // eslint-disable-next-line consistent-return
-    return () => {
+    return () => { 
+      // Unsubscribe to the scroll event
       current.removeEventListener('scroll', handleScroll);
-    };
+    } 
   }, [dispatch, fetchFailed, isFetchingUsers, userListRef, users.length]);
 
   return (

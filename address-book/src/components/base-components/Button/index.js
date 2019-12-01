@@ -1,3 +1,7 @@
+/**
+ * @file Render an html button.
+ * @module base-components/Button
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 import cn from 'classnames';

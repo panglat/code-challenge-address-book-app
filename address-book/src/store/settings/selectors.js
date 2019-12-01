@@ -1,6 +1,6 @@
 /**
  * @file Manages Settings Redux selectors
- * @module SettingsSelectors
+ * @module redux/SettingsSelectors
  */
 
 /**

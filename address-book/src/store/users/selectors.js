@@ -1,6 +1,6 @@
 /**
  * @file Manages Users Redux selectors
- * @module UsersSelectors
+ * @module redux/UsersSelectors
  */
 
 /**

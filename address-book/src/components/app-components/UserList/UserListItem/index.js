@@ -1,3 +1,7 @@
+/**
+ * @file Render one user item in the list.
+ * @module app-components/UserList/UserListItem
+ */
 /* eslint-disable react/jsx-one-expression-per-line */
 import React from 'react';
 import PropTypes from 'prop-types';

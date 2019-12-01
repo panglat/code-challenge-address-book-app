@@ -1,3 +1,7 @@
+/**
+ * @file Render an html header.
+ * @module base-components/Header
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

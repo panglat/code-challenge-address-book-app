@@ -1,3 +1,7 @@
+/**
+ * @file Render a simple modal .
+ * @module base-components/SimpleModal
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 

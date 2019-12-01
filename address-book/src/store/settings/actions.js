@@ -1,6 +1,6 @@
 /**
  * @file Manages Settings Redux actions
- * @module SettingsActions
+ * @module redux/SettingsActions
  */
 import {
   SET_NATIONALITY_SEARCH,

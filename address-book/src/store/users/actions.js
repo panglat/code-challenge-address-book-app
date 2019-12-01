@@ -1,6 +1,6 @@
 /**
  * @file Manages User Redux actions
- * @module UserActions
+ * @module redux/UserActions
  */
 import {
   USERS_FETCH_REQUESTED,
