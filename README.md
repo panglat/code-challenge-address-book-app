@@ -32,4 +32,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 You can learn more in the [Address Book App documentation](https://panglat.github.io/code-challenge-address-book-app/index.html).
 
-![Test](code-challenge-address-book-app/images/HomePage.png "Test")
