@@ -1,6 +1,6 @@
 /**
- * @file Manages Settings Redux actions
- * @module redux/SettingsActions
+ * @file Manages Settings Redux actions.
+ * @module redux-store/settings/Actions
  */
 import {
   SET_NATIONALITY_SEARCH,
@@ -8,8 +8,8 @@ import {
 
 /**
  * @function
- * @description Nationality comma-separated values
- * @param {string} nationalitySearch comma-separated values
+ * @description List of nationality searched by the user.
+ * @param {string[]} nationalitySearch Array of nationalities iso codes.
  */
 export const setNationalitySearch = (nationalitySearch) => ({
   type: SET_NATIONALITY_SEARCH,

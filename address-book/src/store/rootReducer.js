@@ -1,5 +1,5 @@
 /**
- * @file Root reducer
+ * @file Redux root reducer.
  * @module redux/rootReducer
  */
 import { combineReducers } from 'redux';

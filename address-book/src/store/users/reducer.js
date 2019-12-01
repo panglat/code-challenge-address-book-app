@@ -1,6 +1,6 @@
 /**
- * @file Manages Users Redux reducer
- * @module redux/UsersReducer
+ * @file Manages Users Redux reducer.
+ * @module redux-store/users/Reducer
  */
 
 import {

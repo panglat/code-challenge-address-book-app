@@ -24,7 +24,7 @@ const Settings = ({ history }) => {
   const nationalitySearch = useSelector((state) => nationalitySearchSelector(state));
 
   /**
-   * called the the user selects some nationalities and press the save button
+   * Called the the user selects some nationalities and press the save button
    * @param {array} values selected nationalities
    */
   const onSetSelectedNationalities = (values) => {

@@ -77,7 +77,7 @@ const UserList = ({ className }) => {
     /**
      * Everytime the users length is lesser or equals to *recordsToDisplay*, a
      * new pre-emptively user fetch will be dispatched.
-     * The pre-emptively user fetch will not be dispatched if the is a previous 
+     * The pre-emptively user fetch will not be dispatched if the is a previous
      * fetch is being in process or the end of the catalog has been reached.
      * Once the end of user catalog is reached, the last batch of user is
      * displayed in the UI list by setting *recordsToDisplay* = *users*.length
@@ -139,10 +139,10 @@ const UserList = ({ className }) => {
 
     // Subscribe to the scroll event
     current.addEventListener('scroll', handleScroll);
-    return () => { 
-      // Unsubscribe to the scroll event
-      current.removeEventListener('scroll', handleScroll);
-    } 
+
+    // Unsubscribe to the scroll event
+    // eslint-disable-next-line consistent-return
+    return () => current.removeEventListener('scroll', handleScroll);
   }, [dispatch, fetchFailed, isFetchingUsers, userListRef, users.length]);
 
   return (

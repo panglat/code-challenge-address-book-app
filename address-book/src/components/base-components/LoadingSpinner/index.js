@@ -1,5 +1,5 @@
 /**
- * @file Render a loading spinner.
+ * @file Render a loading spinner element.
  * @module base-components/LoadingSpinner
  */
 import React from 'react';

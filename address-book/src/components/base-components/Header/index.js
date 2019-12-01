@@ -1,5 +1,5 @@
 /**
- * @file Render an html header.
+ * @file Render an html header element.
  * @module base-components/Header
  */
 import React from 'react';

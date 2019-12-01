@@ -1,5 +1,5 @@
 /**
- * @file Render a simple modal .
+ * @file Render a simple modal element.
  * @module base-components/SimpleModal
  */
 import React from 'react';

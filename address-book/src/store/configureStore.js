@@ -1,5 +1,5 @@
 /**
- * @file Configure store
+ * @file Configure a redux store.
  * @module redux/configureStore
  */
 import { createStore, applyMiddleware } from 'redux';
@@ -12,6 +12,10 @@ import rootSaga from './rootSaga';
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
+/**
+ * Configure a Redux store.
+ * @function
+ */
 export default function configureStore(preloadedState = {}) {
   const composeEnhancers = composeWithDevTools({
     // Specify name here, actionsBlacklist, actionsCreators and other options if needed

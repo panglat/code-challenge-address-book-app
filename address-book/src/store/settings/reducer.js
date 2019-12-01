@@ -1,6 +1,6 @@
 /**
- * @file Manages Settings Redux reducer
- * @module redux/SettingsReducer
+ * @file Manages Settings Redux reducer.
+ * @module redux-store/settings/Reducer
  */
 
 import { SET_NATIONALITY_SEARCH } from './actionTypes';
@@ -11,7 +11,7 @@ const initialState = {
 
 /**
  * @function
- * @description Settings reducer
+ * @description Settings Redux reducer.
  */
 export default function reducer(state = initialState, action) {
   switch (action.type) {

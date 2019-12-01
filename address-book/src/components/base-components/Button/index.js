@@ -1,5 +1,5 @@
 /**
- * @file Render an html button.
+ * @file Render an html button element.
  * @module base-components/Button
  */
 import React from 'react';

@@ -1,6 +1,6 @@
 /**
- * @file Generate Axios instance for http://randomuser.me
- * @module RandomUserAPI
+ * @file Generate an Axios instance for http://randomuser.me
+ * @module util/api/RandomUserAPI
  */
 import axios from 'axios';
 /**

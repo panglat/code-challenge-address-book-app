@@ -1,5 +1,5 @@
 /**
- * @file Render the user details modal
+ * @file Render the user details modal.
  * @module app-components/UserDetailsModal
  */
 

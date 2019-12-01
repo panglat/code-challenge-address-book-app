@@ -18,8 +18,8 @@ const Users = lazy(() => import(/* webpackPrefetch: true */ '../app-components/U
 const Settings = lazy(() => import(/* webpackPrefetch: true */ '../app-components/Settings'));
 
 /**
- *  Render the app
- * @param {*} store redux store 
+ *  Render the app.
+ * @param {*} store redux store
  */
 const App = ({ store }) => (
   <Provider store={store}>

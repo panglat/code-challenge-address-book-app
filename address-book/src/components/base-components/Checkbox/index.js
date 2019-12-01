@@ -1,5 +1,5 @@
 /**
- * @file Render a checkbox with a label.
+ * @file Render a checkbox element with a label element.
  * @module base-components/Checkbox
  */
 import React from 'react';

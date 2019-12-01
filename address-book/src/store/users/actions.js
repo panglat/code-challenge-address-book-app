@@ -1,6 +1,6 @@
 /**
- * @file Manages User Redux actions
- * @module redux/UserActions
+ * @file Manages User Redux actions.
+ * @module redux-store/users/Selectors
  */
 import {
   USERS_FETCH_REQUESTED,
@@ -15,7 +15,7 @@ import {
 /**
  * @function
  * @description Request users list.
- * @param {getUserListParams} params getUserList parameters.
+ * @param {getUserListParams} params getUserList api parameters.
  */
 export const requestUsers = (params) => ({
   type: USERS_FETCH_REQUESTED,

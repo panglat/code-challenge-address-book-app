@@ -1,6 +1,6 @@
 
 /**
- * @file Render an html main.
+ * @file Render an html main element.
  * @module base-components/Main
  */
 import React from 'react';
