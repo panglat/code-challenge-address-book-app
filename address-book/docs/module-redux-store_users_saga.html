@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Module: redux-store/users/saga</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Module: redux-store/users/saga</h1>
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+            
+        
+    
+</header>
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">Manages Users redux-saga</div>
+        
+
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="store_users_sagas.js.html">store/users/sagas.js</a>, <a href="store_users_sagas.js.html#line1">line 1</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="module:redux-store/users/saga"><span class="type-signature">(generator) </span>(require("redux-store/users/saga"))<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    export the rootSaga single entry point to start all Sagas at once.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="store_users_sagas.js.html">store/users/sagas.js</a>, <a href="store_users_sagas.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~fetchUsers"><span class="type-signature">(generator, inner) </span>fetchUsers<span class="signature">(action)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    trigger getUserList API call.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>action</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">action reference to access to action payload.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="store_users_sagas.js.html">store/users/sagas.js</a>, <a href="store_users_sagas.js.html#line17">line 17</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="~watchFetchUsers"><span class="type-signature">(generator, inner) </span>watchFetchUsers<span class="signature">()</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    watches for all USERS_FETCH_REQUESTED actions.
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="store_users_sagas.js.html">store/users/sagas.js</a>, <a href="store_users_sagas.js.html#line29">line 29</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-App.html">App</a></li><li><a href="module-app-components_NationalitySelector.html">app-components/NationalitySelector</a></li><li><a href="module-app-components_NavBar.html">app-components/NavBar</a></li><li><a href="module-app-components_Settings.html">app-components/Settings</a></li><li><a href="module-app-components_UserDetailsModal.html">app-components/UserDetailsModal</a></li><li><a href="module-app-components_UserList.html">app-components/UserList</a></li><li><a href="module-app-components_UserList_UserListItem.html">app-components/UserList/UserListItem</a></li><li><a href="module-app-components_Users.html">app-components/Users</a></li><li><a href="module-app-components_UserSearch.html">app-components/UserSearch</a></li><li><a href="module-base-components_Button.html">base-components/Button</a></li><li><a href="module-base-components_Checkbox.html">base-components/Checkbox</a></li><li><a href="module-base-components_Header.html">base-components/Header</a></li><li><a href="module-base-components_LoadingSpinner.html">base-components/LoadingSpinner</a></li><li><a href="module-base-components_Main.html">base-components/Main</a></li><li><a href="module-base-components_SimpleModal.html">base-components/SimpleModal</a></li><li><a href="module-redux-store_settings_Actions.html">redux-store/settings/Actions</a></li><li><a href="module-redux-store_settings_ActionTypes.html">redux-store/settings/ActionTypes</a></li><li><a href="module-redux-store_settings_Reducer.html">redux-store/settings/Reducer</a></li><li><a href="module-redux-store_settings_Selectors.html">redux-store/settings/Selectors</a></li><li><a href="module-redux-store_users_ActionTypes.html">redux-store/users/ActionTypes</a></li><li><a href="module-redux-store_users_Reducer.html">redux-store/users/Reducer</a></li><li><a href="module-redux-store_users_saga.html">redux-store/users/saga</a></li><li><a href="module-redux-store_users_Selectors.html">redux-store/users/Selectors</a></li><li><a href="module-redux_configureStore.html">redux/configureStore</a></li><li><a href="module-redux_rootReducer.html">redux/rootReducer</a></li><li><a href="module-redux_rootSaga.html">redux/rootSaga</a></li><li><a href="module-services_UserService.html">services/UserService</a></li><li><a href="module-util_api_RandomUserAPI.html">util/api/RandomUserAPI</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Dec 01 2019 19:01:56 GMT-0300 (GMT-03:00)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
