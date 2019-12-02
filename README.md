@@ -6,13 +6,13 @@ This is a fictional address book app, where the visitor can search for users' ad
 ![Main page](https://panglat.github.io/code-challenge-address-book-app/images/home-page.png "Main page")
 
 The user&#39;s list will automatically load more users as the visitor scroll down. An animated **loading...** message will be displayed at the bottom of the list while the visitor waits.
-To improve the user&#39;s experience, the app will always pre-emptively fetch the next batch of users in advance, making use of idle time. But they still should not be displayed until the visitor has scrolled to the bottom of the user&#39;s list.
-When the visitor reaches the end and there are no more users to display, an **end of users catalog** message will be displayed at the bottom of the list.
+To improve the user&#39;s experience, the app will always pre-emptively fetch the next batch of users in advance, making use of idle time. But they will not be displayed until the visitor has scrolled to the bottom of the user&#39;s list.
+When the visitor reaches the end of the list and there are no more users to display, an **end of users catalog** message will be displayed at the bottom of the list.
 There is a user search field on the top of the app. It is case insensitive and filters the results by first name + last name.
 
 ## Details modal
 ![Details modal](https://panglat.github.io/code-challenge-address-book-app/images/home-page-modal.png "Details modal")
-When the visitor clicks on a specific user in the row, a detail modal with additional info is opened.
+When the visitor clicks on a specific user in the row, a detail modal with additional info will be opened.
 
 ## Settings page
 ![Settings page](https://panglat.github.io/code-challenge-address-book-app/images/settings.png "Settings page")
