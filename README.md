@@ -20,6 +20,8 @@ When the visitor clicks on a specific user in the row, a detail modal with addit
 At the top-right of the app, the visitors can navigate to the settings page by clicking **Settings** in the navigation bar.
 Here the visitor can set from which nationalities the users are fetched for browsing/searching. Possible choices are: Swiss, Spanish, French and British.
 
+![App animation](https://panglat.github.io/code-challenge-address-book-app/images/address-book-app.gif "App animation")
+
 ## Code documentation
 
 You can learn more in the [Address Book App documentation](https://panglat.github.io/code-challenge-address-book-app/index.html).
