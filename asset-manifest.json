@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/code-challenge-address-book-app/static/css/main.7662188e.chunk.css",
+    "main.js": "/code-challenge-address-book-app/static/js/main.f954ae5b.chunk.js",
+    "main.js.map": "/code-challenge-address-book-app/static/js/main.f954ae5b.chunk.js.map",
+    "runtime-main.js": "/code-challenge-address-book-app/static/js/runtime-main.7aff232e.js",
+    "runtime-main.js.map": "/code-challenge-address-book-app/static/js/runtime-main.7aff232e.js.map",
+    "static/js/2.f6cbc0cf.chunk.js": "/code-challenge-address-book-app/static/js/2.f6cbc0cf.chunk.js",
+    "static/js/2.f6cbc0cf.chunk.js.map": "/code-challenge-address-book-app/static/js/2.f6cbc0cf.chunk.js.map",
+    "static/css/3.8f9b519a.chunk.css": "/code-challenge-address-book-app/static/css/3.8f9b519a.chunk.css",
+    "static/js/3.52320bf1.chunk.js": "/code-challenge-address-book-app/static/js/3.52320bf1.chunk.js",
+    "static/js/3.52320bf1.chunk.js.map": "/code-challenge-address-book-app/static/js/3.52320bf1.chunk.js.map",
+    "static/css/4.78f274a4.chunk.css": "/code-challenge-address-book-app/static/css/4.78f274a4.chunk.css",
+    "static/js/4.de1fe49b.chunk.js": "/code-challenge-address-book-app/static/js/4.de1fe49b.chunk.js",
+    "static/js/4.de1fe49b.chunk.js.map": "/code-challenge-address-book-app/static/js/4.de1fe49b.chunk.js.map",
+    "index.html": "/code-challenge-address-book-app/index.html",
+    "precache-manifest.ee97434708da2f1ad73f0ff6a878e03e.js": "/code-challenge-address-book-app/precache-manifest.ee97434708da2f1ad73f0ff6a878e03e.js",
+    "service-worker.js": "/code-challenge-address-book-app/service-worker.js",
+    "static/css/3.8f9b519a.chunk.css.map": "/code-challenge-address-book-app/static/css/3.8f9b519a.chunk.css.map",
+    "static/css/4.78f274a4.chunk.css.map": "/code-challenge-address-book-app/static/css/4.78f274a4.chunk.css.map",
+    "static/css/main.7662188e.chunk.css.map": "/code-challenge-address-book-app/static/css/main.7662188e.chunk.css.map",
+    "static/js/2.f6cbc0cf.chunk.js.LICENSE.txt": "/code-challenge-address-book-app/static/js/2.f6cbc0cf.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7aff232e.js",
+    "static/js/2.f6cbc0cf.chunk.js",
+    "static/css/main.7662188e.chunk.css",
+    "static/js/main.f954ae5b.chunk.js"
+  ]
+}
