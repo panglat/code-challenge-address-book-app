@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: redux/rootSaga</title>
+    <title>JSDoc: Source: src/components/app-components/UserDetailsModal/index.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,222 +17,68 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: redux/rootSaga</h1>
+    <h1 class="page-title">Source: src/components/app-components/UserDetailsModal/index.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Redux Root Saga.</div>
-        
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_store_rootSaga.js.html">src/store/rootSaga.js</a>, <a href="src_store_rootSaga.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="module:redux/rootSaga"><span class="type-signature">(generator) </span>(require("redux/rootSaga"))<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    aggregate multiple Sagas to a single entry point for the sagaMiddleware to run.It uses *spawn* which is an effect that will disconnect your child saga from its parent,allowing it to fail without crashing it's parent.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_store_rootSaga.js.html">src/store/rootSaga.js</a>, <a href="src_store_rootSaga.js.html#line14">line 14</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Render the user details modal.
+ * @module app-components/UserDetailsModal
+ */
+
+/* eslint-disable react/jsx-one-expression-per-line */
+import React from 'react';
+import PropTypes from 'prop-types';
+
+import SimpleModal from '../../base-components/SimpleModal';
+
+import './styles.scss';
+
+const UserDetailsModal = ({ user, ...rest }) => {
+  const { location, name } = user;
+  return (
+    &lt;SimpleModal {...rest}>
+      &lt;div className="user-details-modal">
+        &lt;h2>{`${name.first} ${name.last}`}&lt;/h2>
+        &lt;p>&lt;b>Address:&lt;/b> {`${location.street.number}, ${location.street.name}`}&lt;/p>
+        &lt;p>&lt;b>City:&lt;/b> {location.city}&lt;/p>
+        &lt;p>&lt;b>State:&lt;/b> {location.state}&lt;/p>
+        &lt;p>&lt;b>PostCode:&lt;/b> {location.postcode}&lt;/p>
+        &lt;p>&lt;b>Phone:&lt;/b> {user.phone}&lt;/p>
+        &lt;p>&lt;b>Cell:&lt;/b> {user.cell}&lt;/p>
+      &lt;/div>
+    &lt;/SimpleModal>
+  );
+};
+
+UserDetailsModal.propTypes = {
+  user: PropTypes.shape({
+    name: PropTypes.shape({ first: PropTypes.string, last: PropTypes.string }),
+    location: PropTypes.shape({
+      cell: PropTypes.string,
+      city: PropTypes.string,
+      phone: PropTypes.string,
+      postcode: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+      state: PropTypes.string,
+      street: PropTypes.shape({
+        number: PropTypes.number,
+        name: PropTypes.string,
+      }),
+    }),
+    phone: PropTypes.string,
+    cell: PropTypes.string,
+  }).isRequired,
+};
+
+export default UserDetailsModal;
+</code></pre>
+        </article>
+    </section>
 
 
 

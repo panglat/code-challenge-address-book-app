@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: redux/rootSaga</title>
+    <title>JSDoc: Source: src/store/rootSaga.js</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,222 +17,36 @@
 
 <div id="main">
 
-    <h1 class="page-title">Module: redux/rootSaga</h1>
+    <h1 class="page-title">Source: src/store/rootSaga.js</h1>
 
     
 
 
 
-
-<section>
-
-<header>
     
-        
-            
-        
-            
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-            <div class="description">Redux Root Saga.</div>
-        
-
-        
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_store_rootSaga.js.html">src/store/rootSaga.js</a>, <a href="src_store_rootSaga.js.html#line1">line 1</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="module:redux/rootSaga"><span class="type-signature">(generator) </span>(require("redux/rootSaga"))<span class="signature">()</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    aggregate multiple Sagas to a single entry point for the sagaMiddleware to run.It uses *spawn* which is an effect that will disconnect your child saga from its parent,allowing it to fail without crashing it's parent.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="src_store_rootSaga.js.html">src/store/rootSaga.js</a>, <a href="src_store_rootSaga.js.html#line14">line 14</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</article>
-
-</section>
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Redux Root Saga.
+ * @module redux/rootSaga
+ */
+import { all, spawn } from 'redux-saga/effects';
+import userSagas from './users/sagas';
+
+/**
+ * @generator
+ * @description aggregate multiple Sagas to a single entry point for the sagaMiddleware to run.
+ * It uses *spawn* which is an effect that will disconnect your child saga from its parent,
+ * allowing it to fail without crashing it's parent.
+ */
+export default function* rootSaga() {
+  yield all([
+    userSagas,
+  ].map(spawn));
+}
+</code></pre>
+        </article>
+    </section>
 
 
 
