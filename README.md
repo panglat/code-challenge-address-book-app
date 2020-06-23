@@ -22,6 +22,10 @@ Here the visitor can set from which nationalities the users are fetched for brow
 
 ![App animation](docs/images/address-book-app.gif "App animation")
 
+## Code documentation
+
+You can learn more in the [Address Book App documentation](docs/index.html).
+
 ## Available Scripts
 
 In the project directory, you can run:
