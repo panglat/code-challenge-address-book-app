@@ -3,7 +3,7 @@
 ## Home page
 This is a fictional address book app, where the visitor can search for users' addresses and personal information. The app displays a list of users for clients to browse and get personal information for a selected user.
 
-![Main page](https://panglat.github.io/code-challenge-address-book-app/images/home-page.png "Main page")
+![Main page](https://panglat.github.io/code-challenge-address-book-app/docs/images/home-page.png "Main page")
 
 The user&#39;s list will automatically load more users as the visitor scroll down. An animated **loading...** message will be displayed at the bottom of the list while the visitor waits.
 To improve the user&#39;s experience, the app will always pre-emptively fetch the next batch of users in advance, making use of idle time. But they will not be displayed until the visitor has scrolled to the bottom of the user&#39;s list.
