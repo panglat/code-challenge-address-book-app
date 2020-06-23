@@ -1,5 +1,9 @@
 # Address book app
 
+## Demo
+
+This a link to a demo of this app: [Address Book App](https://panglat.github.io/code-challenge-address-book-app/).
+
 ## Home page
 This is a fictional address book app, where the visitor can search for users' addresses and personal information. The app displays a list of users for clients to browse and get personal information for a selected user.
 
@@ -21,10 +25,6 @@ At the top-right of the app, the visitors can navigate to the settings page by c
 Here the visitor can set from which nationalities the users are fetched for browsing/searching. Possible choices are: Swiss, Spanish, French and British.
 
 ![App animation](docs/images/address-book-app.gif "App animation")
-
-## Code documentation
-
-You can learn more in the [Address Book App documentation](docs/index.html).
 
 ## Available Scripts
 
