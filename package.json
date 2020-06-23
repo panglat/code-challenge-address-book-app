@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "generate-docs": "jsdoc -c conf.json",
-    "predeploy": "npm run build && npm run copy-docs-to-build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
